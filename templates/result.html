@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			ML App
+		</div>
+		<h2>Reverse Dictionary</h2>
+		
+	</div>
+	</header>
+	<div class="results">
+
+
+    <ul>
+    {% for row in prediction %}
+        <li> {{row[0][0]}} : {{row[1][0]}}
+    {% endfor %}
+    </ul>
+
+	</div>
+
+</body>
+</html>
