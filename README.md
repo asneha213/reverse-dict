@@ -10,3 +10,6 @@ python app.py
 ```
 
 - Open your browser and go to `http://0.0.0.0:8000/` to enter your prompts
+
+
+A simpler version of the app is live at https://reversedictbert.herokuapp.com/
