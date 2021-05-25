@@ -7,4 +7,5 @@ numpy==1.19.2
 folium==0.2.1
 streamlit==0.62.0
 Flask==1.1.2
+flask_cors
 -e .
