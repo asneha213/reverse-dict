@@ -14,7 +14,7 @@ def create_faiss_indices(model_code="dsbert", quantizer="HNSWFlat"):
         quantizer (str): quantizer for compressing the indices for efficient search
     """
     
-    embeddings = create_sentence_transformer_embeddings(model_code, df.definition.to_list()[:1000])
+    embeddings = create_sentence_transformer_embeddings(model_code, df.definition.to_list())
     if quantizer == "HNSWFlat":
         quantizer = faiss.IndexHNSWFlat(embeddings.shape[1], 32)
         index = faiss.IndexIVFPQ(quantizer, embeddings.shape[1], 3, 16, 8)
@@ -23,7 +23,7 @@ def create_faiss_indices(model_code="dsbert", quantizer="HNSWFlat"):
 
         # Step 4: Add vectors and their IDs
         index.train(embeddings)
-        index.add_with_ids(embeddings, df.id.values[:1000])
+        index.add_with_ids(embeddings, df.id.values)
         faiss.write_index(index,"store/wordnet_" + model_code + ".index")
 
 if __name__ == "__main__":
